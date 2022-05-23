@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Coding for Enterprise</title>
+<style>
+    {#h1 body {#}
+    {#    font-size:2vw#}
+    {#}#}
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 1vw;
+        background-color: #2196F3;
+        padding: 1vw;
+        width: 70%;
+        margin: auto;
+    }
+
+    .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 1vw 0;
+        font-size: 1rem;
+    }
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .query {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .add {
+        grid-column-start: 3;
+    }
+    .first {
+        grid-column-start: 1;
+    }
+@media screen and (max-width: 800px) {
+    .grid-container {
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}
+</style>
+
+</head>
+<body> 
+  {% include 'navbar.html' %}	
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  {% block content %}
+  {% endblock %}
+</body>
+</html>  

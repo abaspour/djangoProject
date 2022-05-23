@@ -1,0 +1,10 @@
+<nav>
+  <ul style="display: grid;grid-template-columns: auto auto auto auto auto auto">
+      <li><a href="/">Home</a></li>
+      <li><a href="/service">Service Point</a></li>
+      <li><a href="/flight">Flights</a></li>
+     <li>Contact</li>
+     <li>About</li>
+      <li>{% if request.user.username %} Welcome {{ request.user.username }} <a href="/logout"> Logout </a> {% else %} <a href="/login"> Login </a>{% endif %}</li>
+  </ul>
+</nav>

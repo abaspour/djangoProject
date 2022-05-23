@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+        <div class="grid-container">
+            <div class="header">
+                <h2>Create/Update flights</h2>
+            </div>
+
+            <div class="first">
+                <label>Flight No</label><div style="color:red"> {{ form.flightNo.errors }}</div>
+            </div>
+            <div>
+                {{ form.flightNo }}
+            </div>
+
+            <div class="first">
+                <label>origin</label> <div style="color:red"> {{ form.origin.errors }}</div>
+            </div>
+            <div>
+                {{ form.origin }}
+            </div>
+
+            <div class="first">
+                <label>destination</label>
+            </div>
+            <div>
+                {{ form.destination }}
+            </div>
+            <div class="first">
+                <label>EDT</label> <div style="color:red"> {{ form.edt.errors }}</div>
+            </div>
+            <div>
+                {{ form.edt }}
+            </div>
+
+            <div class="first">
+                <label>Estimated Duration</label><div style="color:red"> {{ form.estimatedDuration.errors }}</div>
+            </div>
+            <div>
+                {{ form.estimatedDuration }}
+            </div>
+
+            <div class="first">
+                <a href="{{ request.META.HTTP_REFERER }}">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>cancel</title>
+                        <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                        </path>
+                    </svg>
+                    cancel
+                </a>
+            </div>
+            <div>
+                <button class="btn btn--main" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

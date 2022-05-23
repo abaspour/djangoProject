@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+        <div class="grid-container">
+            <div class="header">
+                <h2>Create/Update Location services</h2>
+            </div>
+
+            <div class="first">
+                <label >Service Code</label> <div style="color:red"> {{ form.locationCode.errors }}</div>
+            </div>
+            <div>
+                {{ form.locationCode }}
+            </div>
+
+            <div class="first">
+                <label for="room_description">Service Name</label>
+            </div>
+            <div>
+                {{ form.locationName }}
+            </div>
+
+            {#            <input required type="text" value="{{service.locationCode}}" name="locationCode" />#}
+            {#            <input required type="text" value="{{service.locationNname}}" name="locationNname"  />#}
+            {#          <div class="form__group">#}
+            {#            <label for="room_topic">Enter a Topic</label>#}
+            {#            <input required type="text" value="{{room.topic.name}}" name="topic" list="topic-list" />#}
+            {#            <datalist id="topic-list">#}
+            {#              <select id="room_topic">#}
+            {#                {% for topic in topics %}#}
+            {#                <option value="{{topic.name}}">{{topic.name}}</option>#}
+            {#                {% endfor %}#}
+            {#              </select>#}
+            {#            </datalist>#}
+            {#          </div>#}
+
+            <div class="first">
+                <a href="{{ request.META.HTTP_REFERER }}">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>cancel</title>
+                        <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                        </path>
+                    </svg>cancel
+                </a>
+            </div>
+            <div>
+                <button class="btn btn--main" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}
